@@ -25,7 +25,12 @@
     firewalld:
       port: 8080/tcp
       permanent: yes
-      state: present
+      state: enabled
+  
+  - name: Firewalld reload
+    service:
+      name: firewalld
+      state: reloaded
       
   - name: Tomcat is started
     service:
