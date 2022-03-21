@@ -6,6 +6,11 @@
     http_port: 8080
 
   tasks:
+
+  - name: Enable a RHSM repository
+    rhsm_repository:
+      name: jws-5-for-rhel-8-x86_64-rpms
+  
   - name: Tomcat package is present
     yum:
       name: jws5-tomcat-webapps.noarch
