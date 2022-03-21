@@ -1,0 +1,22 @@
+---
+- name: install and start tomcat
+  hosts: all
+  become: yes
+  vars:
+    http_port: 8080
+
+  tasks:
+  - name: Tomcat package is present
+    yum:
+      name: jws5-tomcat-webapps.noarch
+      state: latest
+
+  - name: latest Tomcat App test is  present
+    copy:
+      src: files/msm-sample-webapp-1.0-SNAPSHOT.war
+      dest: /opt/rh/jws5/root/usr/share/tomcat/webapps
+
+  - name: Tomcat is started
+    service:
+      name: jws5-tomcat
+      state: started
