@@ -20,6 +20,12 @@
     copy:
       src: files/msm-sample-webapp-1.0-SNAPSHOT.war
       dest: /opt/rh/jws5/root/usr/share/tomcat/webapps
+      
+  - name: Enable 8080/tcp port in firewall
+    firewalld:
+      port: 8080/tcp
+      permanent: yes
+      state: enabled
 
   - name: Tomcat is started
     service:
