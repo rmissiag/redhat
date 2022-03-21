@@ -23,11 +23,10 @@
       
   - name: Enable 8080/tcp port in firewall
     firewalld:
-      zone: public
       port: 8080/tcp
       permanent: yes
-      state: present
-
+      state: immediate
+      
   - name: Tomcat is started
     service:
       name: jws5-tomcat
