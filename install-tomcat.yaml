@@ -23,6 +23,7 @@
       
   - name: Enable 8080/tcp port in firewall
     firewalld:
+      zone: public
       port: 8080/tcp
       permanent: yes
       state: present
